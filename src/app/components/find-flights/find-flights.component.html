@@ -23,13 +23,39 @@
     <p>{{ message }}</p>
   </div>
 
-  <div *ngIf="flights.length > 0">
+  <div *ngIf="flights && flights.length > 0; else noFlights">
     <h3>Available Flights</h3>
-    <ul>
-      <li *ngFor="let flight of flights">
-        Flight Number: {{ flight.flightNumber }}, Airline: {{ flight.operatingAirlines }}, Price: ${{ flight.price }}
-        <button (click)="reserveFlight(flight)">Reserve</button>
-      </li>
-    </ul>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Flight Number</th>
+          <th>Airline</th>
+          <th>Departure City</th>
+          <th>Arrival City</th>
+          <th>Departure Date</th>
+          <th>Estimated Departure Time</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let flight of flights">
+          <td>{{ flight.flightNumber }}</td>
+          <td>{{ flight.operatingAirlines }}</td>
+          <td>{{ flight.departureCity }}</td>
+          <td>{{ flight.arrivalCity }}</td>
+          <td>{{ flight.dateOfDeparture }}</td>
+          <td>{{ flight.estimatedDepartureTime }}</td>
+          <td>${{ flight.price.toFixed(2) }}</td>
+          <td>
+            <button (click)="reserveFlight(flight)">Reserve</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+
+  <ng-template #noFlights>
+    <p>No flights found.</p>
+  </ng-template>
 </div>
