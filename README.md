@@ -73,11 +73,82 @@ src/
 │   │   │   ├── check-in-confirmation.component.ts
 │   │   │   ├── check-in-confirmation.component.html
 │   │   │   ├── check-in-confirmation.component.spec.ts
+│   │   ├── find-flights/
+│   │   │   ├── find-flights.component.ts
+│   │   │   ├── find-flights.component.html
+│   │   │   ├── find-flights.component.spec.ts
+│   │   ├── reserve-flight/
+│   │   │   ├── reserve-flight.component.ts
+│   │   │   ├── reserve-flight.component.html
+│   │   │   ├── reserve-flight.component.spec.ts
+│   │   ├── not-found/
+│   │   │   ├── not-found.component.ts
+│   │   │   ├── not-found.component.html
+│   │   │   ├── not-found.component.spec.ts
 ├── assets/
 ├── environments/
 ├── polyfills.ts
 ├── test.ts
 ```
+
+## Running the Application with the Backend
+
+To try the frontend with the corresponding backend:
+
+1. Clone and set up the backend repository:
+   ```bash
+   git clone <backend-repository-url>
+   cd flightreservation-node-es6-react-backend
+   npm install
+   ```
+
+2. Start the backend server:
+   - If running on the host machine:
+     ```bash
+     npm start
+     ```
+     The backend will be accessible at:
+     ```
+     http://localhost:8080/flightreservation-node-es6-react-backend
+     ```
+
+   - If running in a Docker container:
+     The backend will be accessible at:
+     ```
+     https://localhost:8082/flightreservation-node-es6-react-backend
+     ```
+
+3. Ensure the frontend is configured to communicate with the backend:
+   - The `proxy.conf.json` file is already set up to route API requests to the backend:
+     ```json
+     {
+       "/api": {
+         "target": "https://localhost:8082/flightreservation-node-es6-react-backend",
+         "secure": false,
+         "changeOrigin": true,
+         "pathRewrite": {
+           "^/api": ""
+         }
+       }
+     }
+     ```
+
+   - If the backend is running on the host machine, update the `target` in `proxy.conf.json` to:
+     ```json
+     "target": "http://localhost:8080/flightreservation-node-es6-react-backend"
+     ```
+
+4. Start the frontend server with the proxy configuration:
+   ```bash
+   ng serve --proxy-config proxy.conf.json
+   ```
+
+5. Open your browser and navigate to:
+   ```
+   http://localhost:4200
+   ```
+
+   The frontend will now interact with the backend through the proxy.
 
 ## Troubleshooting
 
