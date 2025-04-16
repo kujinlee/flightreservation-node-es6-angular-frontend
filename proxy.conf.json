@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "https://localhost:8082/flightreservation-node-es6-react-backend",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

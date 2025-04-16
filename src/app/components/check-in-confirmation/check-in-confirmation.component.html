@@ -1,0 +1,24 @@
+<div>
+  <h2>Check-In Confirmation</h2>
+  <p>{{ message }}</p>
+
+  <div *ngIf="confirmation">
+    <h3>Reservation Details</h3>
+    <p><strong>Reservation ID:</strong> {{ confirmation.reservation.id }}</p>
+    <p><strong>Number of Bags:</strong> {{ confirmation.reservation.numberOfBags }}</p>
+    <p><strong>Checked In:</strong> {{ confirmation.reservation.checkedIn ? 'Yes' : 'No' }}</p>
+
+    <h3>Flight Details</h3>
+    <p><strong>Flight Number:</strong> {{ confirmation.flight.flightNumber }}</p>
+    <p><strong>Departure City:</strong> {{ confirmation.flight.departureCity }}</p>
+    <p><strong>Arrival City:</strong> {{ confirmation.flight.arrivalCity }}</p>
+    <p><strong>Date of Departure:</strong> {{ confirmation.flight.dateOfDeparture }}</p>
+    <p><strong>Estimated Departure Time:</strong> {{ confirmation.flight.estimatedDepartureTime }}</p>
+
+    <h3>Passenger Details</h3>
+    <p><strong>Name:</strong> {{ confirmation.passenger.firstName }} {{ confirmation.passenger.lastName }}</p>
+    <p><strong>Email:</strong> {{ confirmation.passenger.email }}</p>
+  </div>
+
+  <button (click)="navigateToHome()">Back to Home</button>
+</div>

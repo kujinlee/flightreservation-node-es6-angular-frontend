@@ -1,0 +1,35 @@
+<div class="find-flights">
+  <h2>Find Flights</h2>
+  <form (ngSubmit)="searchFlights()">
+    <label>
+      From:
+      <input type="text" [(ngModel)]="from" name="from" required />
+    </label>
+    <br />
+    <label>
+      To:
+      <input type="text" [(ngModel)]="to" name="to" required />
+    </label>
+    <br />
+    <label>
+      Departure Date:
+      <input type="date" [(ngModel)]="departureDate" name="departureDate" required />
+    </label>
+    <br />
+    <button type="submit">Search</button>
+  </form>
+
+  <div *ngIf="message">
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="flights.length > 0">
+    <h3>Available Flights</h3>
+    <ul>
+      <li *ngFor="let flight of flights">
+        Flight Number: {{ flight.flightNumber }}, Airline: {{ flight.operatingAirlines }}, Price: ${{ flight.price }}
+        <button (click)="reserveFlight(flight)">Reserve</button>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+# Node.js dependencies
+node_modules/
+package-lock.json
+
+# Angular build outputs
+dist/
+out-tsc/
+
+# Temporary files
+tmp/
+temp/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE-specific files
+.idea/
+.vscode/
+*.swp
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Coverage reports
+coverage/
+
+# Environment files
+src/environments/environment*.ts
+
+# Angular cache
+.angular/
+
+# Test-related files
+karma-results/
+test-results/

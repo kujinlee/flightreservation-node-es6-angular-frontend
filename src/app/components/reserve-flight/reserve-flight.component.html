@@ -1,0 +1,52 @@
+<h2>Reserve Flight</h2>
+
+<!-- Display flight details -->
+<div *ngIf="flight">
+  <p><strong>Flight Number:</strong> {{ flight.flightNumber }}</p>
+  <p><strong>Airline:</strong> {{ flight.operatingAirlines }}</p>
+  <p><strong>Price:</strong> ${{ flight.price }}</p>
+</div>
+
+<!-- Reservation form -->
+<form (ngSubmit)="submitReservation()">
+  <h3>Passenger Information</h3>
+  <label for="firstName">
+    First Name:
+    <input id="firstName" type="text" [(ngModel)]="firstName" name="firstName" required />
+  </label>
+  <br />
+  <label for="lastName">
+    Last Name:
+    <input id="lastName" type="text" [(ngModel)]="lastName" name="lastName" required />
+  </label>
+  <br />
+  <label for="email">
+    Email:
+    <input id="email" type="email" [(ngModel)]="email" name="email" required />
+  </label>
+  <br />
+  <label for="phone">
+    Phone:
+    <input id="phone" type="tel" [(ngModel)]="phone" name="phone" required />
+  </label>
+  <br />
+
+  <h3>Payment Information</h3>
+  <label for="cardNumber">
+    Card Number:
+    <input id="cardNumber" type="text" [(ngModel)]="cardNumber" name="cardNumber" required />
+  </label>
+  <br />
+  <label for="amount">
+    Amount:
+    <input id="amount" type="number" [(ngModel)]="amount" name="amount" readonly />
+  </label>
+  <br />
+
+  <button type="submit">Submit Reservation</button>
+</form>
+
+<!-- Display error or success message -->
+<div *ngIf="message" class="message">
+  <p>{{ message }}</p>
+</div>

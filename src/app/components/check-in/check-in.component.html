@@ -1,0 +1,28 @@
+<div>
+  <h2>Check-In</h2>
+  <p>{{ message }}</p>
+
+  <div *ngIf="reservation">
+    <p><strong>Reservation ID:</strong> {{ reservation.id }}</p>
+    <p><strong>Flight Number:</strong> {{ reservation.flight?.flightNumber }}</p>
+    <p><strong>Passenger Name:</strong> {{ reservation.passenger?.firstName }} {{ reservation.passenger?.lastName }}</p>
+
+    <form (ngSubmit)="completeCheckIn()">
+      <label for="numberOfBags">
+        Number of Bags:
+        <input
+          id="numberOfBags"
+          type="number"
+          [(ngModel)]="numberOfBags"
+          name="numberOfBags"
+          min="0"
+          required
+        />
+      </label>
+      <br />
+      <button type="submit">Complete Check-In</button>
+    </form>
+  </div>
+
+  <button (click)="navigateToHome()">Back to Home</button>
+</div>

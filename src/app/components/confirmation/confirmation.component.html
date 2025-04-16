@@ -1,0 +1,32 @@
+<div>
+  <h2>Reservation Confirmation</h2>
+  <p>{{ message }}</p>
+
+  <div *ngIf="reservationDetails.id">
+    <h3>Reservation Details</h3>
+    <p><strong>Reservation ID:</strong> {{ reservationDetails.id || 'N/A' }}</p>
+    <p><strong>Amount Paid:</strong> ${{ reservationDetails.amount?.toFixed(2) || '0.00' }}</p>
+    <p><strong>Card Number:</strong> **** **** **** {{ reservationDetails.cardNumber?.slice(-4) || 'N/A' }}</p>
+  </div>
+
+  <div *ngIf="flightDetails.flightNumber">
+    <h3>Flight Details</h3>
+    <p><strong>Flight Number:</strong> {{ flightDetails.flightNumber }}</p>
+    <p><strong>Departure City:</strong> {{ flightDetails.departureCity }}</p>
+    <p><strong>Arrival City:</strong> {{ flightDetails.arrivalCity }}</p>
+    <p><strong>Date of Departure:</strong> {{ flightDetails.dateOfDeparture }}</p>
+    <p><strong>Estimated Departure Time:</strong> {{ flightDetails.estimatedDepartureTime }}</p>
+  </div>
+
+  <div *ngIf="passengerDetails.name">
+    <h3>Passenger Details</h3>
+    <p><strong>Name:</strong> {{ passengerDetails.name }}</p>
+    <p><strong>Email:</strong> {{ passengerDetails.email }}</p>
+  </div>
+
+  <div>
+    <button *ngIf="showConfirmButton" (click)="confirmReservation()">Confirm Reservation</button>
+    <button *ngIf="!showConfirmButton" (click)="navigateToCheckIn()">Continue to Check-In</button>
+    <button (click)="navigateToHome()">Back to Home</button>
+  </div>
+</div>
