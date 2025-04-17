@@ -98,7 +98,7 @@ To try the frontend with the corresponding backend:
 1. Clone and set up the backend repository:
    ```bash
    git clone <backend-repository-url>
-   cd flightreservation-node-es6-react-backend
+   cd flightreservation-node-es6-backend
    npm install
    ```
 
@@ -109,13 +109,13 @@ To try the frontend with the corresponding backend:
      ```
      The backend will be accessible at:
      ```
-     http://localhost:8080/flightreservation-node-es6-react-backend
+     http://localhost:8080/flightreservation-node-es6-backend
      ```
 
    - If running in a Docker container:
      The backend will be accessible at:
      ```
-     https://localhost:8082/flightreservation-node-es6-react-backend
+     https://localhost:8082/flightreservation-node-es6-backend
      ```
 
 3. Ensure the frontend is configured to communicate with the backend:
@@ -123,7 +123,7 @@ To try the frontend with the corresponding backend:
      ```json
      {
        "/api": {
-         "target": "https://localhost:8082/flightreservation-node-es6-react-backend",
+         "target": "https://localhost:8082/flightreservation-node-es6-backend",
          "secure": false,
          "changeOrigin": true,
          "pathRewrite": {
@@ -135,7 +135,7 @@ To try the frontend with the corresponding backend:
 
    - If the backend is running on the host machine, update the `target` in `proxy.conf.json` to:
      ```json
-     "target": "http://localhost:8080/flightreservation-node-es6-react-backend"
+     "target": "http://localhost:8080/flightreservation-node-es6-backend"
      ```
 
 4. Start the frontend server with the proxy configuration:
